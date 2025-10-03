@@ -1,4 +1,5 @@
 import React from 'react';
+import { TaskChart } from './TaskChart';
 import './Dashboard.css';
 
 interface Task {
@@ -10,7 +11,6 @@ interface Task {
 }
 
 export const Dashboard: React.FC = () => {
-  // This would typically come from your state management or API
   const tasks: Task[] = [
     {
       id: 1,
@@ -19,12 +19,33 @@ export const Dashboard: React.FC = () => {
       dueDate: '2024-02-01',
       status: 'in-progress'
     },
-    // Add more sample tasks as needed
+    {
+      id: 2,
+      title: 'Design Review Meeting',
+      assignee: 'Jane Smith',
+      dueDate: '2024-02-03',
+      status: 'pending'
+    },
+    {
+      id: 3,
+      title: 'Backend Integration',
+      assignee: 'Mike Johnson',
+      dueDate: '2024-02-05',
+      status: 'completed'
+    },
+    {
+      id: 4,
+      title: 'User Testing',
+      assignee: 'Sarah Wilson',
+      dueDate: '2024-02-07',
+      status: 'pending'
+    }
   ];
 
   return (
     <div className="dashboard">
       <h1>Task Dashboard</h1>
+      <TaskChart tasks={tasks} />
       <div className="task-grid">
         {tasks.map(task => (
           <div key={task.id} className="task-card">
