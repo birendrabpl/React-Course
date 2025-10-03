@@ -1,5 +1,5 @@
 .dashboard {
-  padding: 32px;
+  padding: 2rem;
   max-width: 1400px;
   margin: 0 auto;
   background-color: #f8f9fa;
@@ -116,6 +116,23 @@
   text-align: center;
   color: #666;
   padding: 2rem;
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
+.tasks-section,
+.stocks-section {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  color: #333;
 }
 
 @media (max-width: 768px) {

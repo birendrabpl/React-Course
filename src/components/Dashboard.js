@@ -1,6 +1,8 @@
 import React, { useState, useMemo } from 'react';
 import { TaskCard } from './TaskCard/TaskCard';
+import { StockTable } from './StockTable/StockTable';
 import { tasks } from '../data/tasks';
+import { stocks } from '../data/stocks';
 import './Dashboard.css';
 
 export const Dashboard = () => {
@@ -21,42 +23,49 @@ export const Dashboard = () => {
 
   return (
     <div className="dashboard">
-      <h1>Task Dashboard</h1>
+      <h1>Dashboard</h1>
       
-      <div className="dashboard-controls">
-        <input
-          type="text"
-          placeholder="Search tasks..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className="search-input"
-        />
-        
-        <select 
-          value={statusFilter}
-          onChange={(e) => setStatusFilter(e.target.value)}
-          className="status-filter"
-        >
-          <option value="all">All Status</option>
-          <option value="in-progress">In Progress</option>
-          <option value="pending">Pending</option>
-          <option value="completed">Completed</option>
-        </select>
-      </div>
-
-      {isLoading ? (
-        <div className="loading">Loading tasks...</div>
-      ) : (
-        <div className="task-grid">
-          {filteredTasks.length > 0 ? (
-            filteredTasks.map(task => (
-              <TaskCard key={task.id} task={task} />
-            ))
-          ) : (
-            <p className="no-results">No tasks found</p>
-          )}
+      <section className="tasks-section">
+        <h2>Task Management</h2>
+        <div className="dashboard-controls">
+          <input
+            type="text"
+            placeholder="Search tasks..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="search-input"
+          />
+          
+          <select 
+            value={statusFilter}
+            onChange={(e) => setStatusFilter(e.target.value)}
+            className="status-filter"
+          >
+            <option value="all">All Status</option>
+            <option value="in-progress">In Progress</option>
+            <option value="pending">Pending</option>
+            <option value="completed">Completed</option>
+          </select>
         </div>
-      )}
+
+        {isLoading ? (
+          <div className="loading">Loading tasks...</div>
+        ) : (
+          <div className="task-grid">
+            {filteredTasks.length > 0 ? (
+              filteredTasks.map(task => (
+                <TaskCard key={task.id} task={task} />
+              ))
+            ) : (
+              <p className="no-results">No tasks found</p>
+            )}
+          </div>
+        )}
+      </section>
+
+      <section className="stocks-section">
+        <StockTable stocks={stocks} />
+      </section>
     </div>
   );
 };
