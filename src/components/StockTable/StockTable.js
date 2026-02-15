@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './StockTable.css';
 
-export const StockTable = ({ stocks }) => {
+export const StockTable = ({ stocks, onSelectStock, selectedStock }) => {
   return (
     <div className="stock-table-container">
       <h2>Stock Performance</h2>
@@ -19,7 +19,14 @@ export const StockTable = ({ stocks }) => {
         </thead>
         <tbody>
           {stocks.map(stock => (
-            <tr key={stock.id}>
+            <tr 
+              key={stock.id}
+              onClick={() => onSelectStock(stock)}
+              style={{
+                cursor: 'pointer',
+                backgroundColor: selectedStock?.symbol === stock.symbol ? '#e3f2fd' : 'transparent'
+              }}
+            >
               <td>{stock.symbol}</td>
               <td>{stock.name}</td>
               <td>${stock.q1}</td>
@@ -35,6 +42,16 @@ export const StockTable = ({ stocks }) => {
 };
 
 StockTable.propTypes = {
+  onSelectStock: PropTypes.func.isRequired,
+  selectedStock: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    symbol: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    q1: PropTypes.number.isRequired,
+    q2: PropTypes.number.isRequired,
+    q3: PropTypes.number.isRequired,
+    q4: PropTypes.number.isRequired,
+  }),
   stocks: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,

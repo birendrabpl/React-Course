@@ -25,5 +25,14 @@ export const stocks = [
     q2: 26.10,
     q3: 27.99,
     q4: 28.45
+  },
+  {
+    id: 3,
+    symbol: 'QCOM',
+    name: 'Qualcom Inc.',
+    q1: 155.71,
+    q2: 171.10,
+    q3: 145.99,
+    q4: 155.45
   }
 ];

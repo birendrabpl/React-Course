@@ -1,0 +1,52 @@
+.stock-chart-container {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stock-info {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.stock-info h3 {
+  margin: 0 0 0.5rem 0;
+  color: #1976d2;
+  font-size: 1.3rem;
+}
+
+.stock-info p {
+  margin: 0.25rem 0;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.chart-wrapper {
+  position: relative;
+  height: 400px;
+  width: 100%;
+}
+
+.no-selection {
+  text-align: center;
+  color: #999;
+  padding: 2rem;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .chart-wrapper {
+    height: 300px;
+  }
+
+  .stock-info h3 {
+    font-size: 1.1rem;
+  }
+
+  .stock-info p {
+    font-size: 0.9rem;
+  }
+}
