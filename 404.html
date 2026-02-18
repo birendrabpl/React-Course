@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <title>React App</title>
     <script type="text/javascript">
-      // Store the full location
-      sessionStorage.redirect = window.location.href;
+      // Store just the pathname to avoid redirect loop
+      sessionStorage.redirect = window.location.pathname + window.location.search;
     </script>
     <meta http-equiv="refresh" content="0;url=/React-Course/">
   </head>
