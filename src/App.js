@@ -5,7 +5,7 @@ import { StockAnalysisPage } from './components/StockAnalysis/StockAnalysisPage'
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/React-Course">
       <Routes>
         <Route path="/" element={<Navigate to="/legacy" replace />} />
         <Route path="/legacy" element={<DashboardLegacy />} />
