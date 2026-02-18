@@ -3,12 +3,21 @@
   <head>
     <meta charset="utf-8">
     <title>React App</title>
-    <script type="text/javascript">
-      // Store just the pathname to avoid redirect loop
-      sessionStorage.redirect = window.location.pathname + window.location.search;
-    </script>
-    <meta http-equiv="refresh" content="0;url=/React-Course/">
   </head>
   <body>
+    <script>
+      // Redirect to index.html and pass the requested path as a query parameter
+      var pathname = window.location.pathname;
+      var search = window.location.search;
+      
+      // Only redirect if we're not already at index.html
+      if (!pathname.endsWith('/index.html')) {
+        // Store the path and redirect to root
+        window.location.replace(
+          pathname.substring(0, pathname.lastIndexOf('/') + 1) + 
+          '?redirect=' + encodeURIComponent(pathname + search)
+        );
+      }
+    </script>
   </body>
 </html>
