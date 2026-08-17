@@ -1,0 +1,24 @@
+Architecture overview for this project
+After reading the actual app files—including App.js, stocks.js, useStockAnalysis.js, StockAnalysisService.js, and the components under components—this is a front-end React stock analysis app, not a full backend system. It uses local static data and client-side logic only.
+
+Important: there is no real database, no backend API, and no external service integration in the current implementation. The diagrams below reflect the actual architecture of this repo.
+
+Summary
+This project is best described as:
+
+a static-data React SPA
+a stock metrics dashboard
+an educational demo of client-side architecture
+a front-end app with state, model, service, and UI separation
+The architecture is simple and readable, but it is not production-grade for real financial data because:
+
+no backend or database
+no API integration
+static in-memory dataset
+heuristic algorithm, not a real trading or analytics engine
+If you want, I can next generate:
+
+a more polished “system context diagram” for presentation use,
+a “clean architecture version” of the same project, or
+a PPT-ready version of these diagrams in a single page.
+
